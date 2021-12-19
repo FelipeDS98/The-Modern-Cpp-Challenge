@@ -92,3 +92,32 @@ int largestPrime(int a)
 
     return a > 0 && a < 3 ? 2 : result;
 }
+
+bool isPrime(int const num)
+{
+    if (num <= 3) { return num > 1; }
+    else if (num % 2 == 0 || num % 3 == 0) { return false; }
+    else
+    {
+        for (int i = 5; i * i <= num; i += 6)
+        {
+            if (num % i == 0 || num % (i + 2) == 0) { return false; }
+        }
+        return true;
+    }
+}
+
+bool isSexyPrime(int primes[], int start, int find)
+{
+    for (int i = start; primes[i] <= find; i++)
+    {
+        if (primes[i] != false && primes[i] != true)
+        {
+            if (primes[i] == find)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
