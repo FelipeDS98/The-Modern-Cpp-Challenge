@@ -9,3 +9,6 @@ int lcm(int a[], int size);
 int largestPrime(int a);
 bool isPrime(int const num);
 bool isSexyPrime(int primes[], int start, int find);
+int power(int a, int b);
+bool abundantNumber(int num);
+int abundance(int num);

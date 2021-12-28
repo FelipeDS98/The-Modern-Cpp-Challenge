@@ -121,3 +121,48 @@ bool isSexyPrime(int primes[], int start, int find)
     }
     return false;
 }
+
+int power(int a, int b)
+{
+    int result = a;
+
+    while(b > 1)
+    {
+        result *= a;
+        b--;
+    }
+
+    return result;
+}
+
+bool abundantNumber(int num)
+{
+    if (num % 20 == 0 || num % 30 == 0 || num % 70 == 0 || num % 88 == 0 || num % 104 == 0) { return true; }
+
+    int perfect;
+
+    for (int i = 2; ; i++)
+    {
+        perfect = power(2, i - 1) * (power(2, i) - 1);
+        
+        if (perfect > num) { break; }
+
+        if (num > perfect && isPrime(i)) {
+            if (num % perfect == 0) { return true; }
+        }
+    }
+
+    return false;
+}
+
+int abundance(int num)
+{
+    int result = 0;
+
+    for (int i = 1; i <= num / 2; i++)
+    {
+        if (num % i == 0) { result += i; }
+    }
+
+    return result;
+}
