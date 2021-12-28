@@ -7,6 +7,8 @@ int main()
 
     for (int i = 12; i <= 120; i++) 
     {  
-        if (abundantNumber(i)) { std::cout << i << "\t" << abundance(i) - i << std::endl; }
+        int abdc = abundance(i) - i;
+
+        if (abdc > 0) { std::cout << i << "\t" << abdc << std::endl; }
     }
 }
